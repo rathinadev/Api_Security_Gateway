@@ -1,7 +1,3 @@
-
----
-
-```markdown
 # API Security Gateway
 
 A basic API Security Gateway built with FastAPI that demonstrates centralized security features such as authentication, rate limiting, and logging. This project is a work-in-progress and will be incrementally updated as new features are added.
@@ -33,8 +29,8 @@ api_gateway_project/
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository_url>
-   cd api_gateway_project
+   https://github.com/rathinadev/Api_Security_Gateway.git
+   cd Api_Security_Gateway
    ```
 
 2. **Create and activate a virtual environment:**
@@ -91,6 +87,4 @@ This is a solo project developed incrementally. Contributions are welcome—feel
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-```
 
----
