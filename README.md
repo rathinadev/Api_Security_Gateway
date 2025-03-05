@@ -1,10 +1,4 @@
 
-# Project Title
-
-A brief description of what this project does and who it's for
-
-
-
 # API Security Gateway
 
 A modular API Security Gateway built with FastAPI that provides centralized security for your applications. It enforces authentication, rate limiting (using Redis), and request forwarding to a backend API, while also handling designated local endpoints directly.
