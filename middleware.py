@@ -41,6 +41,11 @@ async def security_gateway_middleware(request: Request, call_next):
     current_count = await check_rate_limit(client_ip)
     if current_count > RATE_LIMIT_MAX_REQUESTS:
         return JSONResponse(status_code=429, content={"detail": "Too Many Requests"})
+    
+    # Decide whether to forward or let FastAPI handle it
+    if request.url.path in ["/", "/health"]:
+        # Let FastAPI's router (i.e., routes.py) handle these endpoints
+        return await call_next(request)
 
     # Process the request if all checks pass by forwarding it
     response = await forward_request(request)
