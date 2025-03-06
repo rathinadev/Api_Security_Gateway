@@ -1,0 +1,51 @@
+{"asctime": "2025-03-06 18:27:40,157", "levelname": "INFO", "name": "root", "message": "Structured logging configured. Logs will be stored in app.log and output to the console.", "taskName": null}
+{"asctime": "2025-03-06 18:27:40,171", "levelname": "INFO", "name": "root", "message": "Structured logging configured. Logs will be stored in app.log and output to the console.", "taskName": "Task-1"}
+{"asctime": "2025-03-06 18:27:40,171", "levelname": "INFO", "name": "root", "message": "Structured logging configured. Logs will be stored in app.log and output to the console.", "taskName": "Task-1"}
+{"asctime": "2025-03-06 18:28:31,945", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-4"}
+{"asctime": "2025-03-06 18:28:31,945", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-4"}
+{"asctime": "2025-03-06 18:28:31,967", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-4"}
+{"asctime": "2025-03-06 18:28:31,967", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-4"}
+{"asctime": "2025-03-06 18:28:31,971", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/health", "taskName": "Task-7"}
+{"asctime": "2025-03-06 18:28:31,971", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/health", "taskName": "Task-7"}
+{"asctime": "2025-03-06 18:28:31,973", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-10"}
+{"asctime": "2025-03-06 18:28:31,973", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-10"}
+{"asctime": "2025-03-06 18:28:31,974", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-12"}
+{"asctime": "2025-03-06 18:28:31,974", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-12"}
+{"asctime": "2025-03-06 18:28:31,995", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-12"}
+{"asctime": "2025-03-06 18:28:31,995", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-12"}
+{"asctime": "2025-03-06 18:28:32,498", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-15"}
+{"asctime": "2025-03-06 18:28:32,498", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-15"}
+{"asctime": "2025-03-06 18:28:32,519", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-15"}
+{"asctime": "2025-03-06 18:28:32,519", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-15"}
+{"asctime": "2025-03-06 18:28:33,023", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-18"}
+{"asctime": "2025-03-06 18:28:33,023", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-18"}
+{"asctime": "2025-03-06 18:28:33,046", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-18"}
+{"asctime": "2025-03-06 18:28:33,046", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-18"}
+{"asctime": "2025-03-06 18:28:33,549", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-21"}
+{"asctime": "2025-03-06 18:28:33,549", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-21"}
+{"asctime": "2025-03-06 18:28:33,569", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-21"}
+{"asctime": "2025-03-06 18:28:33,569", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-21"}
+{"asctime": "2025-03-06 18:28:34,073", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-24"}
+{"asctime": "2025-03-06 18:28:34,073", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-24"}
+{"asctime": "2025-03-06 18:28:34,097", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-24"}
+{"asctime": "2025-03-06 18:28:34,097", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-24"}
+{"asctime": "2025-03-06 18:28:34,599", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-27"}
+{"asctime": "2025-03-06 18:28:34,599", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-27"}
+{"asctime": "2025-03-06 18:28:34,625", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-27"}
+{"asctime": "2025-03-06 18:28:34,625", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-27"}
+{"asctime": "2025-03-06 18:28:35,129", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-30"}
+{"asctime": "2025-03-06 18:28:35,129", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-30"}
+{"asctime": "2025-03-06 18:28:35,157", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-30"}
+{"asctime": "2025-03-06 18:28:35,157", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-30"}
+{"asctime": "2025-03-06 18:28:35,660", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-33"}
+{"asctime": "2025-03-06 18:28:35,660", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-33"}
+{"asctime": "2025-03-06 18:28:35,685", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-33"}
+{"asctime": "2025-03-06 18:28:35,685", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-33"}
+{"asctime": "2025-03-06 18:28:36,189", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-36"}
+{"asctime": "2025-03-06 18:28:36,189", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-36"}
+{"asctime": "2025-03-06 18:28:36,216", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-36"}
+{"asctime": "2025-03-06 18:28:36,216", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-36"}
+{"asctime": "2025-03-06 18:28:36,719", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-39"}
+{"asctime": "2025-03-06 18:28:36,719", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-39"}
+{"asctime": "2025-03-06 18:28:36,739", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-39"}
+{"asctime": "2025-03-06 18:28:36,739", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-39"}
