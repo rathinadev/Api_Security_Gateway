@@ -5,7 +5,7 @@ import requests
 import time
 
 # URLs for your backend API and your gateway
-GATEWAY_URL = "http://127.0.0.1:8000"
+GATEWAY_URL = "http://127.0.0.1:8000"   
 BACKEND_URL = "http://127.0.0.1:9000"
 
 # Headers for authenticated requests (ensure this matches your API_KEY in config.py)
