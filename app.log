@@ -49,3 +49,26 @@
 {"asctime": "2025-03-06 18:28:36,719", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/data", "taskName": "Task-39"}
 {"asctime": "2025-03-06 18:28:36,739", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-39"}
 {"asctime": "2025-03-06 18:28:36,739", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/data \"HTTP/1.1 200 OK\"", "taskName": "Task-39"}
+{"asctime": "2025-03-06 18:40:38,013", "levelname": "INFO", "name": "root", "message": "Structured logging configured. Logs will be stored in app.log and output to the console."}
+{"asctime": "2025-03-06 18:40:38,393", "levelname": "INFO", "name": "root", "message": "Structured logging configured. Logs will be stored in app.log and output to the console."}
+{"asctime": "2025-03-06 18:40:38,412", "levelname": "INFO", "name": "root", "message": "Structured logging configured. Logs will be stored in app.log and output to the console."}
+{"asctime": "2025-03-06 18:40:38,412", "levelname": "INFO", "name": "root", "message": "Structured logging configured. Logs will be stored in app.log and output to the console."}
+{"asctime": "2025-03-06 18:41:25,829", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/metrics"}
+{"asctime": "2025-03-06 18:41:25,829", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/metrics"}
+{"asctime": "2025-03-06 18:41:25,871", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/favicon.ico"}
+{"asctime": "2025-03-06 18:41:25,871", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/favicon.ico"}
+{"asctime": "2025-03-06 18:42:51,408", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/metrics"}
+{"asctime": "2025-03-06 18:42:51,408", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/metrics"}
+{"asctime": "2025-03-06 18:42:51,449", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/metrics \"HTTP/1.1 404 Not Found\""}
+{"asctime": "2025-03-06 18:42:51,449", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET http://127.0.0.1:9000/metrics \"HTTP/1.1 404 Not Found\""}
+{"asctime": "2025-03-06 18:43:36,251", "levelname": "INFO", "name": "root", "message": "Structured logging configured. Logs will be stored in app.log and output to the console."}
+{"asctime": "2025-03-06 18:43:36,269", "levelname": "INFO", "name": "root", "message": "Structured logging configured. Logs will be stored in app.log and output to the console."}
+{"asctime": "2025-03-06 18:43:36,269", "levelname": "INFO", "name": "root", "message": "Structured logging configured. Logs will be stored in app.log and output to the console."}
+{"asctime": "2025-03-06 18:43:37,675", "levelname": "INFO", "name": "root", "message": "Structured logging configured. Logs will be stored in app.log and output to the console."}
+{"asctime": "2025-03-06 18:43:37,694", "levelname": "INFO", "name": "root", "message": "Structured logging configured. Logs will be stored in app.log and output to the console."}
+{"asctime": "2025-03-06 18:43:37,694", "levelname": "INFO", "name": "root", "message": "Structured logging configured. Logs will be stored in app.log and output to the console."}
+{"asctime": "2025-03-06 18:43:38,435", "levelname": "INFO", "name": "root", "message": "Structured logging configured. Logs will be stored in app.log and output to the console."}
+{"asctime": "2025-03-06 18:43:38,454", "levelname": "INFO", "name": "root", "message": "Structured logging configured. Logs will be stored in app.log and output to the console."}
+{"asctime": "2025-03-06 18:43:38,454", "levelname": "INFO", "name": "root", "message": "Structured logging configured. Logs will be stored in app.log and output to the console."}
+{"asctime": "2025-03-06 18:43:40,340", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/metrics"}
+{"asctime": "2025-03-06 18:43:40,340", "levelname": "INFO", "name": "root", "message": "Request: GET http://127.0.0.1:8000/metrics"}

@@ -4,6 +4,7 @@ from logging.handlers import RotatingFileHandler
 from fastapi import FastAPI
 from middleware import security_gateway_middleware
 from routes import router
+from prometheus_fastapi_instrumentator import Instrumentator
 
 # ================================
 # Structured Logging Configuration
@@ -45,6 +46,14 @@ app.middleware("http")(security_gateway_middleware)
 
 # Include local routes defined in routes.py (for example, health check endpoints)
 app.include_router(router)
+
+
+# ================================
+# Prometheus Monitoring
+# ================================
+# This will instrument your app and expose a /metrics endpoint for Prometheus.
+Instrumentator().instrument(app).expose(app)
+
 
 if __name__ == "__main__":
     import uvicorn
