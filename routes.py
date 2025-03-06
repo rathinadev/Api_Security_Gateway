@@ -1,3 +1,6 @@
+## Routes that would be taken care by the gateway for its working and monitoring
+
+
 from fastapi import APIRouter
 
 router = APIRouter()

@@ -1,7 +1,7 @@
 
 # API Security Gateway
 
-A modular API Security Gateway built with FastAPI that provides centralized security for your applications. It enforces authentication, rate limiting (using Redis), and request forwarding to a backend API, while also handling designated local endpoints directly.
+A modular API Security Gateway built with FastAPI that provides centralized security for your backend APIs. This gateway enforces authentication, rate limiting (using Redis), and request forwarding, while also exposing local endpoints for health checks, metrics, and administration. Additionally, it features structured logging (with JSON logs) and Prometheus monitoring for real-time insights.
 
 ---
 
@@ -13,6 +13,7 @@ A modular API Security Gateway built with FastAPI that provides centralized secu
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Usage](#usage)
+- [Testing](#testing)
 - [Future Enhancements](#future-enhancements)
 - [Contributing](#contributing)
 - [License](#license)
@@ -21,33 +22,37 @@ A modular API Security Gateway built with FastAPI that provides centralized secu
 
 ## Overview
 
-The API Security Gateway is designed to sit between clients and your backend API(s). It secures your APIs by:
+The API Security Gateway acts as a protective layer between clients and your backend APIs. It validates incoming requests, applies rate limiting, and proxies approved requests to your backend. Additionally, the gateway handles select local endpoints—such as health checks and metrics—directly. This setup is designed with industry best practices, including:
 
-- **Authenticating** requests using a configurable API key.
-- **Rate limiting** requests per client IP using Redis, ensuring persistence and scalability.
-- **Forwarding** validated requests to the backend API while converting responses into FastAPI-compatible responses.
-- **Handling local endpoints** (such as health checks) directly within the gateway for quick diagnostics and administration.
-
-This approach allows for flexible, centralized security management, reducing redundancy and streamlining your API architecture.
+- **Structured JSON Logging:** Logs are stored in a rotating file and output to the console in JSON format for easy parsing and monitoring.
+- **Prometheus Monitoring:** The gateway is instrumented to expose metrics on `/metrics`, allowing integration with Prometheus (and visualization via Grafana).
+- **Redis-Based Rate Limiting:** Ensures consistent rate limiting across sessions and instances.
+- **Automated and Manual Testing:** Both types of tests are included to help verify the functionality during development.
 
 ---
 
 ## Features
 
-- **Authentication:**  
-  Validates requests using an API key supplied in the `x-api-key` header.
-
+- **Static API Key Authentication:**  
+  Validates requests using a pre-defined API key.
+  
 - **Redis-Based Rate Limiting:**  
-  Limits the number of requests per client IP over a configurable time window, ensuring that excessive usage is controlled and persistent across restarts.
+  Limits the number of requests per client IP within a specified time window. Persistent across restarts and scalable.
 
 - **Request Forwarding:**  
-  Proxies incoming requests to a designated backend API, converting the backend's response into a format that FastAPI can return to the client.
+  Proxies requests to a backend API while handling responses and errors appropriately.
 
 - **Local Endpoint Handling:**  
-  Supports selective routing so that certain endpoints (e.g., `/` or `/health`) can be served directly by the gateway rather than being forwarded.
+  Endpoints such as `/`, `/health`, and `/metrics` are processed by the gateway itself, not forwarded.
 
-- **Logging:**  
-  Logs incoming requests and errors for easier debugging and monitoring.
+- **Structured Logging:**  
+  Logs are output in JSON format and stored in a rotating file (`app.log`), providing detailed, structured logs for troubleshooting and monitoring.
+
+- **Prometheus Monitoring:**  
+  Automatically instruments your FastAPI application and exposes metrics on `/metrics` for performance monitoring.
+
+- **Testing:**  
+  Includes both automated tests (using pytest and FastAPI's TestClient) and a manual test script (using the `requests` library) for comprehensive validation.
 
 ---
 
@@ -55,12 +60,13 @@ This approach allows for flexible, centralized security management, reducing red
 
 ```
 api_gateway_project/
-├── main.py           # Initializes FastAPI, registers middleware, and includes routes.
-├── middleware.py     # Contains security middleware: authentication, rate limiting (Redis), and request forwarding.
-├── routes.py         # Defines local endpoints (e.g., "/", "/health") handled directly by the gateway.
+├── main.py           # Initializes FastAPI, configures structured logging, registers middleware and routes, and exposes metrics.
+├── middleware.py     # Contains security middleware for authentication, rate limiting (Redis), and request forwarding.
+├── routes.py         # Defines local endpoints (e.g., "/", "/health") served directly by the gateway.
 ├── config.py         # Centralized configuration settings (API key, rate limit parameters, backend URL, etc.).
-├── requirements.txt  # Lists project dependencies.
-└── README.md         # Project documentation.
+├── requirements.txt  # Lists all project dependencies.
+├── test_gateway.py   # Automated tests using pytest and FastAPI's TestClient.
+└── README.md         # This project documentation.
 ```
 
 ---
@@ -70,8 +76,8 @@ api_gateway_project/
 ### 1. Clone the Repository
 
 ```bash
-https://github.com/rathinadev/Api_Security_Gateway.git
-cd Api_Security_Gateway
+git clone <repository_url>
+cd api_gateway_project
 ```
 
 ### 2. Create and Activate a Virtual Environment
@@ -96,77 +102,116 @@ venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+*If you add new dependencies, update the file using:*
+
+```bash
+pip freeze > requirements.txt
+```
+
 ---
 
 ## Configuration
 
-Customize your gateway settings in the `config.py` file. Here you can set:
+Edit `config.py` to set your configuration values:
 
-- **API_KEY:** The expected API key for authentication.
+- **API_KEY:** The API key used for static authentication.
 - **RATE_LIMIT_WINDOW:** The time window (in seconds) for rate limiting.
-- **RATE_LIMIT_MAX_REQUESTS:** The maximum number of requests allowed per client IP within the time window.
-- **TARGET_API_URL:** The base URL of the backend API where valid requests should be forwarded.
-- **REDIS_PORT:** (if needed) the port on which your Redis instance is running.
+- **RATE_LIMIT_MAX_REQUESTS:** Maximum number of allowed requests per IP per window.
+- **TARGET_API_URL:** The base URL for your backend API (e.g., `http://127.0.0.1:9000`).
+- **SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES:** (Planned for JWT authentication.)
 
 ---
 
 ## Usage
 
-### Running the Gateway
+### Starting the Services
 
-1. Ensure your backend API is running (e.g., on port 9000).
-2. Start the API Security Gateway:
+1. **Start Your Backend API:**  
+   Ensure your backend API is running (e.g., on port 9000). For example:
+   ```bash
+   uvicorn backend:backend_app --port 9000 --reload
+   ```
 
-```bash
-uvicorn main:app --reload
-```
+2. **Run the API Security Gateway:**  
+   Start the gateway with:
+   ```bash
+   uvicorn main:app --reload
+   ```
 
-The gateway will be available at [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
-
-### Testing Endpoints
+### Accessing Endpoints
 
 - **Local Endpoints:**  
-  Visit endpoints like `/` or `/health` directly to check the gateway’s status.
+  - `/` and `/health`: Served directly by the gateway.
+  - `/metrics`: Exposes Prometheus metrics.
   
 - **Forwarded Endpoints:**  
-  Any endpoint not handled locally is proxied to the backend API. Use a tool like `curl` or Postman to send requests with the required `x-api-key` header.
+  Any other endpoint (e.g., `/data`) is forwarded to your backend API.
 
-Example using `curl`:
+- **Authentication:**  
+  Requests must include the header `x-api-key: secret123` (or as defined in `config.py`).
+
+Example using curl for a forwarded endpoint:
 
 ```bash
-curl -H "x-api-key: secret123" http://127.0.0.1:8000/your-backend-endpoint
+curl -H "x-api-key: secret123" http://127.0.0.1:8000/data
 ```
+
+---
+
+## Testing
+
+### Automated Testing
+
+Run the pytest suite:
+
+```bash
+pytest test_gateway.py
+```
+
+This will execute tests for:
+- Authentication failures.
+- Successful request forwarding.
+- Rate limiting enforcement.
+- Handling of backend failures.
+
+### Manual Testing
+
+You can also run the manual test script (if provided) for ad-hoc testing:
+
+```bash
+python test_endpoints.py
+```
+
+This script uses the `requests` library to test both your backend API and the gateway.
 
 ---
 
 ## Future Enhancements
 
-- **Robust Error Handling:**  
-  Improve exception handling for Redis and backend connection errors.
-
-- **Advanced Authentication:**  
-  Implement JWT-based authentication for enhanced security and flexibility.
-
-- **Monitoring & Metrics:**  
-  Integrate with monitoring tools (e.g., Prometheus, Grafana) for real-time tracking of requests and errors.
+- **Advanced Authentication (JWT):**  
+  Replace the static API key with JWT-based authentication for more flexible, user-based security.
 
 - **Admin Dashboard:**  
-  Develop a web-based dashboard to monitor traffic, logs, and rate limits.
+  Build a dashboard for real-time monitoring and management of the gateway.
+
+- **Enhanced Error Handling:**  
+  Improve error handling with retries and better fallback strategies.
 
 - **Containerization:**  
-  Create a Dockerfile for containerized deployment and easier scalability.
+  Create a Dockerfile for easy deployment and scaling of the gateway.
+
+- **CI/CD Integration:**  
+  Set up continuous integration to automatically run tests on code changes.
 
 ---
 
 ## Contributing
 
-Contributions, suggestions, and bug reports are welcome!  
-Please fork the repository and submit pull requests, or open issues with your ideas for improvement.
+Contributions, bug reports, and feature suggestions are welcome!  
+Please fork the repository and submit pull requests, or open issues with your ideas.
 
 ---
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
-
