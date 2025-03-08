@@ -76,8 +76,8 @@ api_gateway_project/
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository_url>
-cd api_gateway_project
+git clone https://github.com/rathinadev/Api_Security_Gateway.git
+cd Api_Security_Gateway
 ```
 
 ### 2. Create and Activate a Virtual Environment
